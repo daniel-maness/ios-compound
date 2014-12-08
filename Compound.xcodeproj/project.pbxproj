@@ -9,12 +9,28 @@
 /* Begin PBXBuildFile section */
 		AA758B2B1A362EA6007DEEA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B2A1A362EA6007DEEA9 /* AppDelegate.swift */; };
 		AA758B2F1A362EA6007DEEA9 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B2E1A362EA6007DEEA9 /* GameScene.swift */; };
-		AA758B311A362EA6007DEEA9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B301A362EA6007DEEA9 /* GameViewController.swift */; };
 		AA758B341A362EA6007DEEA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA758B321A362EA6007DEEA9 /* Main.storyboard */; };
-		AA758B361A362EA6007DEEA9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA758B351A362EA6007DEEA9 /* Images.xcassets */; };
 		AA758B391A362EA6007DEEA9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA758B371A362EA6007DEEA9 /* LaunchScreen.xib */; };
 		AA758B451A362EA6007DEEA9 /* CompoundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B441A362EA6007DEEA9 /* CompoundTests.swift */; };
 		AA758B4F1A363009007DEEA9 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B4E1A363009007DEEA9 /* Button.swift */; };
+		AA758B511A3631BF007DEEA9 /* BusinessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B501A3631BF007DEEA9 /* BusinessLogic.swift */; };
+		AA758B661A363248007DEEA9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA758B531A363248007DEEA9 /* LaunchScreen.xib */; };
+		AA758B671A363248007DEEA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA758B551A363248007DEEA9 /* Main.storyboard */; };
+		AA758B681A363248007DEEA9 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B581A363248007DEEA9 /* Challenge.swift */; };
+		AA758B6B1A363248007DEEA9 /* DataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B5B1A363248007DEEA9 /* DataAccess.swift */; };
+		AA758B6C1A363248007DEEA9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B5C1A363248007DEEA9 /* GameViewController.swift */; };
+		AA758B6D1A363248007DEEA9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA758B5D1A363248007DEEA9 /* Images.xcassets */; };
+		AA758B6E1A363248007DEEA9 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B5E1A363248007DEEA9 /* Keyboard.swift */; };
+		AA758B711A363248007DEEA9 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B611A363248007DEEA9 /* Set.swift */; };
+		AA758B731A363248007DEEA9 /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B631A363248007DEEA9 /* StreamReader.swift */; };
+		AA758B751A363248007DEEA9 /* WordPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B651A363248007DEEA9 /* WordPair.swift */; };
+		AA758B7B1A3632B1007DEEA9 /* SQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B791A3632B1007DEEA9 /* SQLiteDB.swift */; };
+		AA758B7C1A3632B1007DEEA9 /* String-Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B7A1A3632B1007DEEA9 /* String-Extras.swift */; };
+		AA758B821A363324007DEEA9 /* combinations.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA758B7E1A363324007DEEA9 /* combinations.txt */; };
+		AA758B831A363324007DEEA9 /* Combine.db in Resources */ = {isa = PBXBuildFile; fileRef = AA758B7F1A363324007DEEA9 /* Combine.db */; };
+		AA758B841A363324007DEEA9 /* keywords.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA758B801A363324007DEEA9 /* keywords.txt */; };
+		AA758B851A363324007DEEA9 /* keywords.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA758B811A363324007DEEA9 /* keywords.xml */; };
+		AA758B871A3633A2007DEEA9 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA758B861A3633A2007DEEA9 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +48,31 @@
 		AA758B291A362EA6007DEEA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA758B2A1A362EA6007DEEA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA758B2E1A362EA6007DEEA9 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		AA758B301A362EA6007DEEA9 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		AA758B331A362EA6007DEEA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AA758B351A362EA6007DEEA9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AA758B381A362EA6007DEEA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		AA758B3E1A362EA6007DEEA9 /* CompoundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CompoundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA758B431A362EA6007DEEA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA758B441A362EA6007DEEA9 /* CompoundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompoundTests.swift; sourceTree = "<group>"; };
 		AA758B4E1A363009007DEEA9 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		AA758B501A3631BF007DEEA9 /* BusinessLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessLogic.swift; sourceTree = "<group>"; };
+		AA758B541A363248007DEEA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		AA758B561A363248007DEEA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		AA758B581A363248007DEEA9 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		AA758B5B1A363248007DEEA9 /* DataAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataAccess.swift; sourceTree = "<group>"; };
+		AA758B5C1A363248007DEEA9 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		AA758B5D1A363248007DEEA9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AA758B5E1A363248007DEEA9 /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		AA758B611A363248007DEEA9 /* Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
+		AA758B631A363248007DEEA9 /* StreamReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamReader.swift; sourceTree = "<group>"; };
+		AA758B651A363248007DEEA9 /* WordPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordPair.swift; sourceTree = "<group>"; };
+		AA758B781A3632B1007DEEA9 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		AA758B791A3632B1007DEEA9 /* SQLiteDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDB.swift; sourceTree = "<group>"; };
+		AA758B7A1A3632B1007DEEA9 /* String-Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-Extras.swift"; sourceTree = "<group>"; };
+		AA758B7E1A363324007DEEA9 /* combinations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = combinations.txt; sourceTree = "<group>"; };
+		AA758B7F1A363324007DEEA9 /* Combine.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Combine.db; sourceTree = "<group>"; };
+		AA758B801A363324007DEEA9 /* keywords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = keywords.txt; sourceTree = "<group>"; };
+		AA758B811A363324007DEEA9 /* keywords.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = keywords.xml; sourceTree = "<group>"; };
+		AA758B861A3633A2007DEEA9 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA758B871A3633A2007DEEA9 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +97,7 @@
 		AA758B1C1A362EA5007DEEA9 = {
 			isa = PBXGroup;
 			children = (
+				AA758B861A3633A2007DEEA9 /* libsqlite3.dylib */,
 				AA758B271A362EA6007DEEA9 /* Compound */,
 				AA758B411A362EA6007DEEA9 /* CompoundTests */,
 				AA758B261A362EA6007DEEA9 /* Products */,
@@ -81,13 +116,23 @@
 		AA758B271A362EA6007DEEA9 /* Compound */ = {
 			isa = PBXGroup;
 			children = (
-				AA758B4E1A363009007DEEA9 /* Button.swift */,
 				AA758B2A1A362EA6007DEEA9 /* AppDelegate.swift */,
+				AA758B501A3631BF007DEEA9 /* BusinessLogic.swift */,
+				AA758B4E1A363009007DEEA9 /* Button.swift */,
+				AA758B581A363248007DEEA9 /* Challenge.swift */,
+				AA758B5B1A363248007DEEA9 /* DataAccess.swift */,
 				AA758B2E1A362EA6007DEEA9 /* GameScene.swift */,
-				AA758B301A362EA6007DEEA9 /* GameViewController.swift */,
-				AA758B321A362EA6007DEEA9 /* Main.storyboard */,
-				AA758B351A362EA6007DEEA9 /* Images.xcassets */,
+				AA758B5C1A363248007DEEA9 /* GameViewController.swift */,
+				AA758B5E1A363248007DEEA9 /* Keyboard.swift */,
+				AA758B611A363248007DEEA9 /* Set.swift */,
+				AA758B631A363248007DEEA9 /* StreamReader.swift */,
+				AA758B651A363248007DEEA9 /* WordPair.swift */,
+				AA758B5D1A363248007DEEA9 /* Images.xcassets */,
+				AA758B521A363248007DEEA9 /* Base.lproj */,
+				AA758B7D1A363324007DEEA9 /* Data */,
 				AA758B371A362EA6007DEEA9 /* LaunchScreen.xib */,
+				AA758B321A362EA6007DEEA9 /* Main.storyboard */,
+				AA758B771A3632B1007DEEA9 /* SQLiteDB */,
 				AA758B281A362EA6007DEEA9 /* Supporting Files */,
 			);
 			path = Compound;
@@ -116,6 +161,36 @@
 				AA758B431A362EA6007DEEA9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AA758B521A363248007DEEA9 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				AA758B531A363248007DEEA9 /* LaunchScreen.xib */,
+				AA758B551A363248007DEEA9 /* Main.storyboard */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		AA758B771A3632B1007DEEA9 /* SQLiteDB */ = {
+			isa = PBXGroup;
+			children = (
+				AA758B781A3632B1007DEEA9 /* Bridging-Header.h */,
+				AA758B791A3632B1007DEEA9 /* SQLiteDB.swift */,
+				AA758B7A1A3632B1007DEEA9 /* String-Extras.swift */,
+			);
+			path = SQLiteDB;
+			sourceTree = "<group>";
+		};
+		AA758B7D1A363324007DEEA9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				AA758B7E1A363324007DEEA9 /* combinations.txt */,
+				AA758B7F1A363324007DEEA9 /* Combine.db */,
+				AA758B801A363324007DEEA9 /* keywords.txt */,
+				AA758B811A363324007DEEA9 /* keywords.xml */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,8 +273,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA758B6D1A363248007DEEA9 /* Images.xcassets in Resources */,
+				AA758B661A363248007DEEA9 /* LaunchScreen.xib in Resources */,
+				AA758B821A363324007DEEA9 /* combinations.txt in Resources */,
+				AA758B831A363324007DEEA9 /* Combine.db in Resources */,
+				AA758B671A363248007DEEA9 /* Main.storyboard in Resources */,
 				AA758B391A362EA6007DEEA9 /* LaunchScreen.xib in Resources */,
-				AA758B361A362EA6007DEEA9 /* Images.xcassets in Resources */,
+				AA758B851A363324007DEEA9 /* keywords.xml in Resources */,
+				AA758B841A363324007DEEA9 /* keywords.txt in Resources */,
 				AA758B341A362EA6007DEEA9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,10 +299,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA758B6C1A363248007DEEA9 /* GameViewController.swift in Sources */,
+				AA758B751A363248007DEEA9 /* WordPair.swift in Sources */,
+				AA758B7C1A3632B1007DEEA9 /* String-Extras.swift in Sources */,
+				AA758B511A3631BF007DEEA9 /* BusinessLogic.swift in Sources */,
+				AA758B6E1A363248007DEEA9 /* Keyboard.swift in Sources */,
+				AA758B6B1A363248007DEEA9 /* DataAccess.swift in Sources */,
+				AA758B731A363248007DEEA9 /* StreamReader.swift in Sources */,
 				AA758B2F1A362EA6007DEEA9 /* GameScene.swift in Sources */,
-				AA758B311A362EA6007DEEA9 /* GameViewController.swift in Sources */,
 				AA758B2B1A362EA6007DEEA9 /* AppDelegate.swift in Sources */,
 				AA758B4F1A363009007DEEA9 /* Button.swift in Sources */,
+				AA758B7B1A3632B1007DEEA9 /* SQLiteDB.swift in Sources */,
+				AA758B681A363248007DEEA9 /* Challenge.swift in Sources */,
+				AA758B711A363248007DEEA9 /* Set.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +348,22 @@
 				AA758B381A362EA6007DEEA9 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		AA758B531A363248007DEEA9 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA758B541A363248007DEEA9 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		AA758B551A363248007DEEA9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA758B561A363248007DEEA9 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -301,6 +407,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Compound/SQLiteDB/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -336,6 +443,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Compound/SQLiteDB/Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
