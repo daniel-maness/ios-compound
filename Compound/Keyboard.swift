@@ -9,33 +9,16 @@
 import SpriteKit
 
 class Keyboard: SKNode {
-    let keyboardWidth: CGFloat
-    let keyboardHeight: CGFloat
     let _numRows = 4
+    
+    var keyboardWidth: CGFloat
+    var keyboardHeight: CGFloat
     var keyColor: SKColor
     var keyColorActive: SKColor
-    var text: String = ""
-    //var _activeKey = SKShapeNode()
     var touchedKey = SKShapeNode()
-
-    override init() {
-        self.keyboardWidth = 0
-        self.keyboardHeight = 0
-        self.keyColor = SKColor.whiteColor()
-        self.keyColorActive = SKColor.whiteColor()
-        
-        super.init()
-        
-        self.createKeyboard()
-    }
     
-    required init?(coder aDecoder: NSCoder) {
-        self.keyboardWidth = 0
-        self.keyboardHeight = 0
-        self.keyColor = SKColor.whiteColor()
-        self.keyColorActive = SKColor.whiteColor()
-        
-        super.init(coder: aDecoder)
+    required init(coder: NSCoder) {
+        fatalError("NSCoding not supported")
     }
     
     init(keyboardWidth: CGFloat, keyboardHeight: CGFloat, keyColor: SKColor, keyColorActive: SKColor) {
@@ -50,6 +33,8 @@ class Keyboard: SKNode {
     }
     
     func createKeyboard() {
+        self.name = "keyboard"
+        
         // Bottom row
         createRow(0, keyText: ["clear", "submit"])
         

@@ -26,6 +26,7 @@ class GameViewController: UIViewController {
         // Configure the scene
         scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .AspectFill
+        scene.keyboardHandler = handleKeyboard
         
         skView.presentScene(scene)
         
@@ -40,5 +41,16 @@ class GameViewController: UIViewController {
         var businessLogic = BusinessLogic()
         
         return businessLogic.getNewChallenge()
+    }
+    
+    func handleKeyboard(keyboard: Keyboard) {
+        switch keyboard.touchedKey.name! {
+        case "clear":
+            scene.updateAnswerDisplay("")
+        case "del":
+            scene.updateAnswerDisplay("")
+        default:
+            return
+        }
     }
 }
