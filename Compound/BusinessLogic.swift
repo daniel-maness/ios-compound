@@ -43,11 +43,11 @@ class BusinessLogic {
         
     }
     
-    func checkAnswer(answer: String, challenge: Challenge) -> (Success: Bool, Challenge) {
+    func checkAnswer(answer: String, challenge: Challenge) -> (Success: Bool, Challenge: Challenge) {
         challenge.guesses.append(answer)
         
         if answer == challenge.keyword.Name {
-            challenge.totalPoints = calculatePoints(challenge.guesses.count)
+            challenge.points = calculatePoints(challenge.guesses.count)
             return (true, challenge)
         } else {
             return (false, challenge)

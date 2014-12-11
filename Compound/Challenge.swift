@@ -12,5 +12,5 @@ class Challenge {
     var wordPairs = [WordPair]()
     var keyword: Word = Word(id: 0, name: "")
     var guesses: [String] = [String]()
-    var totalPoints: Int = 0    
+    var points: Int = 0
 }
