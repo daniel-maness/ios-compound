@@ -12,6 +12,8 @@ class BusinessLogic {
     var dataAccess = DataAccess()
     
     func getNewChallenge() -> Challenge {
+        //dataAccess.populateWordTable()
+        //dataAccess.populateCombinationTable()
         var keywords = dataAccess.getAllWords()
         
         var keyword: Word

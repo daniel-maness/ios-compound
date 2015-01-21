@@ -27,7 +27,7 @@
 		AA758B7B1A3632B1007DEEA9 /* SQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B791A3632B1007DEEA9 /* SQLiteDB.swift */; };
 		AA758B7C1A3632B1007DEEA9 /* String-Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B7A1A3632B1007DEEA9 /* String-Extras.swift */; };
 		AA758B821A363324007DEEA9 /* combinations.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA758B7E1A363324007DEEA9 /* combinations.txt */; };
-		AA758B831A363324007DEEA9 /* Combine.db in Resources */ = {isa = PBXBuildFile; fileRef = AA758B7F1A363324007DEEA9 /* Combine.db */; };
+		AA758B831A363324007DEEA9 /* compound.db in Resources */ = {isa = PBXBuildFile; fileRef = AA758B7F1A363324007DEEA9 /* compound.db */; };
 		AA758B841A363324007DEEA9 /* keywords.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA758B801A363324007DEEA9 /* keywords.txt */; };
 		AA758B851A363324007DEEA9 /* keywords.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA758B811A363324007DEEA9 /* keywords.xml */; };
 		AA758B871A3633A2007DEEA9 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA758B861A3633A2007DEEA9 /* libsqlite3.dylib */; };
@@ -69,7 +69,7 @@
 		AA758B791A3632B1007DEEA9 /* SQLiteDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDB.swift; sourceTree = "<group>"; };
 		AA758B7A1A3632B1007DEEA9 /* String-Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-Extras.swift"; sourceTree = "<group>"; };
 		AA758B7E1A363324007DEEA9 /* combinations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = combinations.txt; sourceTree = "<group>"; };
-		AA758B7F1A363324007DEEA9 /* Combine.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Combine.db; sourceTree = "<group>"; };
+		AA758B7F1A363324007DEEA9 /* compound.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = compound.db; sourceTree = "<group>"; };
 		AA758B801A363324007DEEA9 /* keywords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = keywords.txt; sourceTree = "<group>"; };
 		AA758B811A363324007DEEA9 /* keywords.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = keywords.xml; sourceTree = "<group>"; };
 		AA758B861A3633A2007DEEA9 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -186,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				AA758B7E1A363324007DEEA9 /* combinations.txt */,
-				AA758B7F1A363324007DEEA9 /* Combine.db */,
+				AA758B7F1A363324007DEEA9 /* compound.db */,
 				AA758B801A363324007DEEA9 /* keywords.txt */,
 				AA758B811A363324007DEEA9 /* keywords.xml */,
 			);
@@ -276,7 +276,7 @@
 				AA758B6D1A363248007DEEA9 /* Images.xcassets in Resources */,
 				AA758B661A363248007DEEA9 /* LaunchScreen.xib in Resources */,
 				AA758B821A363324007DEEA9 /* combinations.txt in Resources */,
-				AA758B831A363324007DEEA9 /* Combine.db in Resources */,
+				AA758B831A363324007DEEA9 /* compound.db in Resources */,
 				AA758B671A363248007DEEA9 /* Main.storyboard in Resources */,
 				AA758B391A362EA6007DEEA9 /* LaunchScreen.xib in Resources */,
 				AA758B851A363324007DEEA9 /* keywords.xml in Resources */,
