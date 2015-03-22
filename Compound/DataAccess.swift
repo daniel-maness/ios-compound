@@ -23,18 +23,18 @@ class DataAccess {
         return words
     }
     
-    func getAllWordPairs(keyword: Word) -> [WordPair] {
+    func getAllCombinations(keyword: Word) -> [Combination] {
         let db = SQLiteDB.sharedInstance()
-        let data = db.query("SELECT * FROM WordPair wp WHERE wp.FirstId = " + String(keyword.Id) + " OR wp.SecondId = " + String(keyword.Id))
-        var wordPairs = [WordPair]()
+        let data = db.query("SELECT * FROM Combination c WHERE c.FirstId = " + String(keyword.Id) + " OR c.SecondId = " + String(keyword.Id))
+        var combinations = [Combination]()
         
         for row in data {
             let first = Word(id: row["FirstId"]!.asInt(), name: row["FirstName"]!.asString())
             let second = Word(id: row["SecondId"]!.asInt(), name: row["SecondName"]!.asString())
-            wordPairs.append(WordPair(keyword: keyword, leftWord: first, rightWord: second))
+            combinations.append(Combination(keyword: keyword, leftWord: first, rightWord: second))
         }
         
-        return wordPairs
+        return combinations
     }
     
     func getChallenge() -> Challenge {
@@ -85,13 +85,11 @@ class DataAccess {
         }
     }
     
-    func populateCombinationTable() {
+    func populateWordPairTable() {
         var words = getAllWords()
 
         var streamReader = StreamReader(fileName: "combinations")
         var rawList: Array<NSString> = streamReader.getWords()
-        
-        
         
         for combo in rawList {
             for word in words {
@@ -99,15 +97,15 @@ class DataAccess {
                     var firstWord = combo.substringToIndex(countElements(word.Name))
                     if firstWord == word.Name {
                         var secondWord = combo.substringFromIndex(countElements(firstWord))
-                        if getCombinationId(firstWord, secondWord: secondWord) == 0 {
-                                insertCombination(firstWord, secondWord: secondWord)
+                        if getWordPairId(firstWord, secondWord: secondWord) == 0 {
+                                insertWordPair(firstWord, secondWord: secondWord)
                         }
                     } else {
                         firstWord = combo.substringToIndex(combo.length - countElements(word.Name))
                         var secondWord = combo.substringFromIndex(combo.length - countElements(word.Name))
                         
-                        if secondWord == word.Name && getCombinationId(firstWord, secondWord: secondWord) == 0 {
-                            insertCombination(firstWord, secondWord: secondWord)
+                        if secondWord == word.Name && getWordPairId(firstWord, secondWord: secondWord) == 0 {
+                            insertWordPair(firstWord, secondWord: secondWord)
                         }
                     }
                 }
@@ -126,13 +124,13 @@ class DataAccess {
         return Word(id: data[0]["Id"]!.asInt(), name: data[0]["Name"]!.asString())
     }
     
-    func getCombinationId(firstWord: String, secondWord: String) -> Int {
+    func getWordPairId(firstWord: String, secondWord: String) -> Int {
         let db = SQLiteDB.sharedInstance()
         let first = getWord(firstWord)
         let second = getWord(secondWord)
         
         if (first.Id > 0 && second.Id > 0) {
-            let data = db.query("SELECT Id FROM Combination WHERE fk_FirstWordId = " + String(first.Id) + " AND fk_SecondWordId = " + String(second.Id))
+            let data = db.query("SELECT Id FROM WordPair WHERE fk_FirstWordId = " + String(first.Id) + " AND fk_SecondWordId = " + String(second.Id))
             
             if (data.count > 0) {
                 return data[0]["Id"]!.asInt()
@@ -149,7 +147,7 @@ class DataAccess {
         let result = db.execute("INSERT INTO Word (Name) VALUES ('" + name + "')")
     }
     
-    func insertCombination(firstWord: String, secondWord: String) {
+    func insertWordPair(firstWord: String, secondWord: String) {
         let db = SQLiteDB.sharedInstance()
         let first = db.query("SELECT Id FROM Word WHERE Name = '" + firstWord + "'")
         let second = db.query("SELECT Id FROM Word WHERE Name = '" + secondWord + "'")
@@ -157,6 +155,6 @@ class DataAccess {
         let firstId = first[0]["Id"]?.asString()
         let secondId = second[0]["Id"]?.asString()
         
-        let result = db.execute("INSERT INTO Combination (fk_FirstWordId, fk_SecondWordId) VALUES (" + firstId! + ", " + secondId! + ")")
+        let result = db.execute("INSERT INTO WordPair (fk_FirstWordId, fk_SecondWordId) VALUES (" + firstId! + ", " + secondId! + ")")
     }
 }

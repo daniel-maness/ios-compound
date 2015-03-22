@@ -9,9 +9,7 @@
 import SpriteKit
 
 class GameScene: SKScene {
-    let fontSizeSmall: CGFloat = 16
-    let fontSizeMedium: CGFloat = 32
-    let fontSizeLarge: CGFloat = 48
+
     let fontColor = SKColor.blackColor()
     let fontName = "Helvetica"
     let sceneWidth: CGFloat
@@ -30,12 +28,14 @@ class GameScene: SKScene {
     var keyboard: Keyboard!
     var keyboardHandler: ((Keyboard) ->())?
     var menuHandler: ((String) ->())?
-    var clueLabels = [SKLabelNode]()
+    var hintLabels = [SKLabelNode]()
     var answerLabel = SKLabelNode()
     var pointsLabel = SKLabelNode()
+    var timerLabel = SKLabelNode()
     
-    var revealButton: SKShapeNode!
+    var hintButton: SKShapeNode!
     var skipButton: SKShapeNode!
+    var nextButton: SKShapeNode!
     
     required init(coder: NSCoder) {
         fatalError("NSCoding not supported")
@@ -65,7 +65,6 @@ class GameScene: SKScene {
         
         //let background = SKSpriteNode(fileNamed: "background")
         
-        
         createKeyboardLayer()
         createChallengeLayer()
         createMenuLayer()
@@ -88,19 +87,66 @@ class GameScene: SKScene {
         let labelHeight = challengeLayerHeight / 4.5
         var yPosition = labelHeight
         
-        // Clue labels
+        // Timer label
+        timerLabel = createLabel("", fontSize: FontSize.small, fontColor: fontColor, fontName: fontName, position: CGPoint(x: 0, y: 2.75 * labelHeight))
+        gameLayer.addChild(timerLabel)
+        
+        // Hint labels
         for i in 0..<3 {
-            var label = createLabel("", fontSize: fontSizeLarge, fontColor: fontColor, fontName: fontName, position: CGPoint(x: 0, y: yPosition))
+            var label = createLabel("", fontSize: FontSize.medium, fontColor: fontColor, fontName: fontName, position: CGPoint(x: 0, y: yPosition))
             
-            clueLabels.append(label)
+            hintLabels.append(label)
             challengeLayer.addChild(label)
             
             yPosition -= labelHeight
         }
         
         // Answer label
-        answerLabel = createLabel("", fontSize: fontSizeMedium, fontColor: keyActiveColor, fontName: fontName, position: CGPoint(x: 0, y: yPosition))
+        answerLabel = createLabel("", fontSize: FontSize.medium, fontColor: keyActiveColor, fontName: fontName, position: CGPoint(x: 0, y: yPosition))
         challengeLayer.addChild(answerLabel)
+    }
+    
+    func createMenuLayer() {
+        let background = SKSpriteNode(color: UIColor.whiteColor(), size: CGSize(width: sceneWidth, height: menuLayerHeight))
+        background.position = CGPoint(x: 0, y: 0)
+        menuLayer.addChild(background)
+        
+        menuLayer.position = CGPoint(x: 0, y: sceneHeight / 2 - (menuLayerHeight / 2))
+        gameLayer.addChild(menuLayer)
+        
+        // Points label
+        pointsLabel = createLabel("", fontSize: FontSize.small, fontColor: fontColor, fontName: fontName, position: CGPoint(x: sceneWidth / -2 + 40, y: -5))
+        menuLayer.addChild(pointsLabel)
+        
+        let buttonWidth = sceneWidth / 4
+        let buttonHeight = menuLayerHeight - 1
+        
+        // Hint button
+        hintButton = createButton("hint", width: buttonWidth, height: buttonHeight, x: 0, y:  menuLayerHeight / -2, hidden: false)
+        menuLayer.addChild(hintButton)
+        
+        // Skip button
+        skipButton = createButton("skip", width: buttonWidth, height: buttonHeight, x: sceneWidth / 2 - buttonWidth, y: menuLayerHeight / -2, hidden: false)
+        menuLayer.addChild(skipButton)
+        
+        // Next button
+        nextButton = createButton("next", width: buttonWidth, height: buttonHeight, x: sceneWidth / 2 - buttonWidth, y: menuLayerHeight / -2, hidden: true)
+        menuLayer.addChild(nextButton)
+    }
+    
+    func createButton(name: String, width: CGFloat, height: CGFloat, x: CGFloat, y: CGFloat, hidden: Bool) -> SKShapeNode {
+        var button = SKShapeNode(rect: CGRect(x: 0, y: 0, width: width, height: height))
+        button.name = name
+        button.position = CGPointMake(x, y)
+        button.fillColor = UIColor.whiteColor()
+        button.strokeColor = UIColor.blackColor()
+        
+        var label = createLabel(name, fontSize: FontSize.small, fontColor: fontColor, fontName: fontName, position: CGPoint(x: width / 2, y: height / 4))
+        button.addChild(label)
+        
+        button.hidden = hidden
+        
+        return button
     }
     
     func createLabel(text: String, fontSize: CGFloat, fontColor: SKColor, fontName: String, position: CGPoint) -> SKLabelNode{
@@ -114,53 +160,31 @@ class GameScene: SKScene {
         
         return label
     }
-    
-    func createMenuLayer() {
-        let background = SKSpriteNode(color: UIColor.whiteColor(), size: CGSize(width: sceneWidth, height: menuLayerHeight))
-        background.position = CGPoint(x: 0, y: 0)
-        menuLayer.addChild(background)
-        
-        menuLayer.position = CGPoint(x: 0, y: sceneHeight / 2 - (menuLayerHeight / 2))
-        gameLayer.addChild(menuLayer)
-        
-        // Points label
-        pointsLabel = createLabel("", fontSize: fontSizeSmall, fontColor: fontColor, fontName: fontName, position: CGPoint(x: sceneWidth / -2 + 40, y: -5))
-        menuLayer.addChild(pointsLabel)
-        
-        // Hint/Reveal button
-        let buttonWidth = sceneWidth / 4
-        let buttonHeight = menuLayerHeight - 1
-        revealButton = createButton("reveal", width: buttonWidth, height: buttonHeight, x: 0, y:  menuLayerHeight / -2)
-        menuLayer.addChild(revealButton)
-        
-        // Skip button
-        skipButton = createButton("skip", width: buttonWidth, height: buttonHeight, x: sceneWidth / 2 - buttonWidth, y: menuLayerHeight / -2)
-        menuLayer.addChild(skipButton)
-    }
-    
-    func createButton(name: String, width: CGFloat, height: CGFloat, x: CGFloat, y: CGFloat) -> SKShapeNode {
-        var button = SKShapeNode(rect: CGRect(x: 0, y: 0, width: width, height: height))
-        button.name = name
-        button.position = CGPointMake(x, y)
-        button.fillColor = UIColor.whiteColor()
-        button.strokeColor = UIColor.blackColor()
-        
-        var label = createLabel(name, fontSize: fontSizeSmall, fontColor: fontColor, fontName: fontName, position: CGPoint(x: width / 2, y: height / 4))
-        button.addChild(label)
-        
-        return button
-    }
 
-    func updateChallengeDisplay(challenge: Challenge) {
-        for i in 0..<3 {
-            clueLabels[i].text = challenge.wordPairs[i].keywordLocation == Location.Left ? challenge.wordPairs[i].rightWord.Name : challenge.wordPairs[i].leftWord.Name
+    func updateChallengeDisplay(challenge: Challenge, hint: String?=nil) {
+        if challenge.ended {
+            showCompletedChallenge(challenge)
+        } else if challenge.hintsUsed > 0 {
+            showChallengeWithHints(challenge, hint: hint!)
+        } else {
+            showChallenge(challenge)
         }
-        
-        updateAnswerDisplay("")
     }
     
     func updatePointsDisplay(points: Int) {
         pointsLabel.text = "Points:  " + String(points)
+    }
+    
+    func updateTimerDisplay(time: Int) {
+        if time == 60 {
+            timerLabel.text = "1:00"
+        } else {
+            if time < 10 {
+                timerLabel.text = "0:0" + String(time)
+            } else {
+                timerLabel.text = "0:" + String(time)
+            }
+        }
     }
     
     func updateAnswerDisplay(text: String) {
@@ -179,12 +203,15 @@ class GameScene: SKScene {
                 }
             }
         } else if menuLayer.containsPoint(location) {
-            if revealButton.containsPoint(location) {
-                revealButton.fillColor = keyActiveColor
-                skipButton.fillColor = keyColor
+            if hintButton.containsPoint(location) {
+                hintButton.fillColor = keyActiveColor
+                nextButton.fillColor = keyColor
             } else if skipButton.containsPoint(location) {
-                revealButton.fillColor = keyColor
+                skipButton.fillColor = keyColor
                 skipButton.fillColor = keyActiveColor
+            } else if nextButton.containsPoint(location) {
+                hintButton.fillColor = keyColor
+                nextButton.fillColor = keyActiveColor
             }
         }
     }
@@ -201,12 +228,15 @@ class GameScene: SKScene {
                 }
             }
         } else if menuLayer.containsPoint(location) {
-            if revealButton.containsPoint(location) {
-                revealButton.fillColor = keyActiveColor
-                skipButton.fillColor = keyColor
+            if hintButton.containsPoint(location) {
+                hintButton.fillColor = keyActiveColor
+                nextButton.fillColor = keyColor
             } else if skipButton.containsPoint(location) {
-                revealButton.fillColor = keyColor
+                skipButton.fillColor = keyColor
                 skipButton.fillColor = keyActiveColor
+            } else if nextButton.containsPoint(location) {
+                hintButton.fillColor = keyColor
+                nextButton.fillColor = keyActiveColor
             }
         }
     }
@@ -230,7 +260,38 @@ class GameScene: SKScene {
         }
         
         keyboard.clearTouches()
-        revealButton.fillColor = keyColor
+        hintButton.fillColor = keyColor
         skipButton.fillColor = keyColor
+        nextButton.fillColor = keyColor
+    }
+    
+    private func showChallenge(challenge: Challenge) {
+        for i in 0..<3 {
+            hintLabels[i].text = challenge.combinations[i].keywordLocation == Location.Left ? challenge.combinations[i].rightWord.Name : challenge.combinations[i].leftWord.Name
+        }
+        updateAnswerDisplay("")
+        hintButton.hidden = false
+        skipButton.hidden = false
+        nextButton.hidden = true
+    }
+    
+    private func showChallengeWithHints(challenge: Challenge, hint: String) {
+        for i in 0..<3 {
+            hintLabels[i].text = challenge.combinations[i].keywordLocation == Location.Left ? hint + challenge.combinations[i].rightWord.Name : challenge.combinations[i].leftWord.Name + hint
+        }
+        
+        if challenge.hintsUsed == 3 {
+            hintButton.hidden = true
+        }
+    }
+    
+    private func showCompletedChallenge(challenge: Challenge) {
+        for i in 0..<3 {
+            hintLabels[i].text = challenge.combinations[i].leftWord.Name + challenge.combinations[i].rightWord.Name
+        }
+        updateAnswerDisplay(challenge.keyword.Name)
+        hintButton.hidden = true
+        skipButton.hidden = true
+        nextButton.hidden = false
     }
 }

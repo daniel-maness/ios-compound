@@ -9,8 +9,10 @@
 import Foundation
 
 class Challenge {
-    var wordPairs = [WordPair]()
+    var combinations = [Combination]()
     var keyword: Word = Word(id: 0, name: "")
     var guesses: [String] = [String]()
+    var hintsUsed: Int = 0
     var points: Int = 0
+    var ended: Bool = false
 }

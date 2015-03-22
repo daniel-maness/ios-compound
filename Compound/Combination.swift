@@ -1,5 +1,5 @@
 //
-//  WordPair.swift
+//  Combination.swift
 //  Compound
 //
 //  Created by Daniel Maness on 11/13/14.
@@ -28,7 +28,7 @@ enum Location: Int {
     case Unknown = 0, Left, Right
 }
 
-class WordPair: Printable, Hashable {
+class Combination: Printable, Hashable {
     var keyword: Word
     var leftWord: Word
     var rightWord: Word
@@ -57,7 +57,7 @@ class WordPair: Printable, Hashable {
     }
 }
 
-func ==(lhs: WordPair, rhs: WordPair) -> Bool {
+func ==(lhs: Combination, rhs: Combination) -> Bool {
     return lhs.combinedWord == rhs.combinedWord
 }
 

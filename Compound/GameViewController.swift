@@ -12,11 +12,15 @@ import SpriteKit
 class GameViewController: UIViewController {
     let businessLogic = BusinessLogic()
     
+    var homeScene: HomeScene!
     var scene: GameScene!
     var challenge: Challenge!
     var totalPoints: Int = 0
     var guess: String = ""
     var maxWordLength = 12
+    var timer = NSTimer()
+    let maxTime = 60
+    var time: Int = 0
     
     override func prefersStatusBarHidden() -> Bool {
         return true
@@ -32,9 +36,23 @@ class GameViewController: UIViewController {
         // Configure the view.
         let skView = self.view as SKView
         skView.multipleTouchEnabled = false
-        //skView.ignoresSiblingOrder = true
-        //skView.showsFPS = true
-        //skView.showsNodeCount = true
+        
+        homeScene = HomeScene(size: skView.bounds.size)
+        homeScene.scaleMode = .AspectFill
+        homeScene.buttonHandler = handleHomeButton
+        homeScene.playHandler = handlePlayButton
+        homeScene.challengesHandler = handleChallengesButton
+        homeScene.profileHandler = handleProfileButton
+        homeScene.settingsHandler = handleSettingsButton
+        
+        skView.presentScene(homeScene)
+        
+    }
+    
+    func loadGameScene(){
+        // Configure the view.
+        let skView = self.view as SKView
+        skView.multipleTouchEnabled = false
         
         // Configure the scene
         scene = GameScene(size: skView.bounds.size)
@@ -47,6 +65,29 @@ class GameViewController: UIViewController {
         beginGame()
     }
     
+    func handleTimer() {
+        if time > 0 {
+            time--
+            scene.updateTimerDisplay(time)
+            
+            if time == 45 || time == 30 || time == 10 {
+                useHint()
+            }
+        } else {
+            stopChallenge()
+        }
+    }
+    
+    func startTimer() {
+        time = maxTime
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("handleTimer"), userInfo: nil, repeats: true)
+        scene.updateTimerDisplay(time)
+    }
+    
+    func stopTimer() {
+        timer.invalidate()
+    }
+    
     func beginGame() {
         newChallenge()
     }
@@ -54,8 +95,10 @@ class GameViewController: UIViewController {
     func newChallenge() {
         self.challenge = createChallenge()
         guess = ""
-        scene.updateChallengeDisplay(self.challenge)
+        scene.updateChallengeDisplay(challenge)
         scene.updatePointsDisplay(totalPoints)
+        
+        startChallenge()
     }
 
     func createChallenge() -> Challenge {
@@ -63,39 +106,42 @@ class GameViewController: UIViewController {
     }
     
     func handleKeyboard(keyboard: Keyboard) {
-        switch keyboard.touchedKey.name! {
-        case "clear":
-            guess = ""
-        case "submit":
-            if trySubmit() {
-                updatePoints()
-                newChallenge()
-                return
-            } else {
+        if !challenge.ended {
+            switch keyboard.touchedKey.name! {
+            case "clear":
                 guess = ""
+            case "submit":
+                if trySubmit() {
+                    challenge.points = businessLogic.calculatePoints(challenge.guesses.count)
+                    stopChallenge()
+                } else {
+                    guess = ""
+                }
+            case "del":
+                if countElements(guess) <= 1 {
+                    guess = ""
+                } else {
+                    guess = guess.substringToIndex(guess.endIndex.predecessor())
+                }
+                scene.updateAnswerDisplay(guess)
+            default:
+                if countElements(guess) < maxWordLength {
+                    guess += keyboard.touchedKey.name!
+                }
             }
-        case "del":
-            if countElements(guess) <= 1 {
-                guess = ""
-            } else {
-                guess = guess.substringToIndex(guess.endIndex.predecessor())
-            }
+            
             scene.updateAnswerDisplay(guess)
-        default:
-            if countElements(guess) < maxWordLength {
-                guess += keyboard.touchedKey.name!
-            }
         }
-        
-        scene.updateAnswerDisplay(guess)
     }
     
     func handleMenu(name: String) {
         switch name {
-        case "reveal":
-            scene.updateAnswerDisplay(challenge.keyword.Name)
+        case "hint":
+            handleHint()
         case "skip":
-            newChallenge()
+            handleSkip()
+        case "next":
+            handleNext()
         default:
             return
         }
@@ -111,5 +157,68 @@ class GameViewController: UIViewController {
     func updatePoints() {
         totalPoints += challenge.points
         scene.updatePointsDisplay(totalPoints)
+    }
+    
+    func handleHint() {
+        useHint()
+    }
+    
+    func handleSkip() {
+        stopChallenge()
+        newChallenge()
+    }
+    
+    func handleNext() {
+        stopChallenge()
+        newChallenge()
+    }
+    
+    func useHint() {
+        var useHint = businessLogic.useHint(challenge)
+        challenge = useHint.Challenge
+        
+        scene.updateChallengeDisplay(challenge, hint: useHint.Hint)
+    }
+    
+    func startChallenge() {
+        startTimer()
+    }
+    
+    func stopChallenge() {
+        challenge.ended = true
+        updatePoints()
+        stopTimer()
+        scene.updateChallengeDisplay(challenge)
+    }
+    
+    func handleHomeButton(name: String) {
+        switch name {
+        case "PLAY":
+            loadGameScene()
+        case "CHALENGES":
+            break
+        case "PROFILE":
+            break
+        case "SETTINGS":
+            break
+        default:
+            break
+        }
+    }
+    
+    func handlePlayButton() {
+        loadGameScene()
+    }
+    
+    func handleChallengesButton() {
+        
+    }
+    
+    func handleProfileButton() {
+        
+    }
+    
+    func handleSettingsButton() {
+        
     }
 }

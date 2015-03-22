@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA58069A1A770292005BD0FA /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5806991A770292005BD0FA /* HomeScene.swift */; };
+		AA58069C1A7703EC005BD0FA /* SceneServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA58069B1A7703EC005BD0FA /* SceneServices.swift */; };
 		AA758B2B1A362EA6007DEEA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B2A1A362EA6007DEEA9 /* AppDelegate.swift */; };
 		AA758B2F1A362EA6007DEEA9 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B2E1A362EA6007DEEA9 /* GameScene.swift */; };
 		AA758B341A362EA6007DEEA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA758B321A362EA6007DEEA9 /* Main.storyboard */; };
@@ -23,14 +25,18 @@
 		AA758B6E1A363248007DEEA9 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B5E1A363248007DEEA9 /* Keyboard.swift */; };
 		AA758B711A363248007DEEA9 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B611A363248007DEEA9 /* Set.swift */; };
 		AA758B731A363248007DEEA9 /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B631A363248007DEEA9 /* StreamReader.swift */; };
-		AA758B751A363248007DEEA9 /* WordPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B651A363248007DEEA9 /* WordPair.swift */; };
+		AA758B751A363248007DEEA9 /* Combination.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B651A363248007DEEA9 /* Combination.swift */; };
 		AA758B7B1A3632B1007DEEA9 /* SQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B791A3632B1007DEEA9 /* SQLiteDB.swift */; };
 		AA758B7C1A3632B1007DEEA9 /* String-Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA758B7A1A3632B1007DEEA9 /* String-Extras.swift */; };
 		AA758B821A363324007DEEA9 /* combinations.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA758B7E1A363324007DEEA9 /* combinations.txt */; };
-		AA758B831A363324007DEEA9 /* compound.db in Resources */ = {isa = PBXBuildFile; fileRef = AA758B7F1A363324007DEEA9 /* compound.db */; };
 		AA758B841A363324007DEEA9 /* keywords.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA758B801A363324007DEEA9 /* keywords.txt */; };
 		AA758B851A363324007DEEA9 /* keywords.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA758B811A363324007DEEA9 /* keywords.xml */; };
 		AA758B871A3633A2007DEEA9 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA758B861A3633A2007DEEA9 /* libsqlite3.dylib */; };
+		AACF79E01A7025A600937FEC /* compound.db in Resources */ = {isa = PBXBuildFile; fileRef = AACF79DF1A7025A600937FEC /* compound.db */; };
+		AAE5A2591AB9D9CB008827CE /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE5A2581AB9D9CB008827CE /* Resources.swift */; };
+		AAE5A25B1AB9EF24008827CE /* ChallengesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE5A25A1AB9EF24008827CE /* ChallengesScene.swift */; };
+		AAE5A25D1AB9EF31008827CE /* ProfileScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE5A25C1AB9EF31008827CE /* ProfileScene.swift */; };
+		AAE5A25F1AB9EF3D008827CE /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE5A25E1AB9EF3D008827CE /* SettingsScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA5806991A770292005BD0FA /* HomeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
+		AA58069B1A7703EC005BD0FA /* SceneServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneServices.swift; path = ../SceneServices.swift; sourceTree = "<group>"; };
 		AA758B251A362EA6007DEEA9 /* Compound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Compound.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA758B291A362EA6007DEEA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA758B2A1A362EA6007DEEA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,15 +72,19 @@
 		AA758B5E1A363248007DEEA9 /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		AA758B611A363248007DEEA9 /* Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		AA758B631A363248007DEEA9 /* StreamReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamReader.swift; sourceTree = "<group>"; };
-		AA758B651A363248007DEEA9 /* WordPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordPair.swift; sourceTree = "<group>"; };
+		AA758B651A363248007DEEA9 /* Combination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Combination.swift; sourceTree = "<group>"; };
 		AA758B781A3632B1007DEEA9 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		AA758B791A3632B1007DEEA9 /* SQLiteDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDB.swift; sourceTree = "<group>"; };
 		AA758B7A1A3632B1007DEEA9 /* String-Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-Extras.swift"; sourceTree = "<group>"; };
 		AA758B7E1A363324007DEEA9 /* combinations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = combinations.txt; sourceTree = "<group>"; };
-		AA758B7F1A363324007DEEA9 /* compound.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = compound.db; sourceTree = "<group>"; };
 		AA758B801A363324007DEEA9 /* keywords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = keywords.txt; sourceTree = "<group>"; };
 		AA758B811A363324007DEEA9 /* keywords.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = keywords.xml; sourceTree = "<group>"; };
 		AA758B861A3633A2007DEEA9 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		AACF79DF1A7025A600937FEC /* compound.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = compound.db; sourceTree = "<group>"; };
+		AAE5A2581AB9D9CB008827CE /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		AAE5A25A1AB9EF24008827CE /* ChallengesScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengesScene.swift; sourceTree = "<group>"; };
+		AAE5A25C1AB9EF31008827CE /* ProfileScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScene.swift; sourceTree = "<group>"; };
+		AAE5A25E1AB9EF3D008827CE /* SettingsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +106,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA58069D1A7707D1005BD0FA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AAE5A2581AB9D9CB008827CE /* Resources.swift */,
+				AA758B5E1A363248007DEEA9 /* Keyboard.swift */,
+				AA758B4E1A363009007DEEA9 /* Button.swift */,
+				AA758B581A363248007DEEA9 /* Challenge.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		AA58069E1A7707DA005BD0FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AA5806991A770292005BD0FA /* HomeScene.swift */,
+				AA758B2E1A362EA6007DEEA9 /* GameScene.swift */,
+				AAE5A25A1AB9EF24008827CE /* ChallengesScene.swift */,
+				AAE5A25C1AB9EF31008827CE /* ProfileScene.swift */,
+				AAE5A25E1AB9EF3D008827CE /* SettingsScene.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		AA5806A01A7707EB005BD0FA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AA758B5C1A363248007DEEA9 /* GameViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		AA758B1C1A362EA5007DEEA9 = {
 			isa = PBXGroup;
 			children = (
@@ -116,17 +159,16 @@
 		AA758B271A362EA6007DEEA9 /* Compound */ = {
 			isa = PBXGroup;
 			children = (
+				AA5806A01A7707EB005BD0FA /* Controllers */,
+				AA58069E1A7707DA005BD0FA /* Views */,
+				AA58069D1A7707D1005BD0FA /* Models */,
+				AA58069B1A7703EC005BD0FA /* SceneServices.swift */,
 				AA758B2A1A362EA6007DEEA9 /* AppDelegate.swift */,
 				AA758B501A3631BF007DEEA9 /* BusinessLogic.swift */,
-				AA758B4E1A363009007DEEA9 /* Button.swift */,
-				AA758B581A363248007DEEA9 /* Challenge.swift */,
 				AA758B5B1A363248007DEEA9 /* DataAccess.swift */,
-				AA758B2E1A362EA6007DEEA9 /* GameScene.swift */,
-				AA758B5C1A363248007DEEA9 /* GameViewController.swift */,
-				AA758B5E1A363248007DEEA9 /* Keyboard.swift */,
 				AA758B611A363248007DEEA9 /* Set.swift */,
 				AA758B631A363248007DEEA9 /* StreamReader.swift */,
-				AA758B651A363248007DEEA9 /* WordPair.swift */,
+				AA758B651A363248007DEEA9 /* Combination.swift */,
 				AA758B5D1A363248007DEEA9 /* Images.xcassets */,
 				AA758B521A363248007DEEA9 /* Base.lproj */,
 				AA758B7D1A363324007DEEA9 /* Data */,
@@ -185,8 +227,8 @@
 		AA758B7D1A363324007DEEA9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				AACF79DF1A7025A600937FEC /* compound.db */,
 				AA758B7E1A363324007DEEA9 /* combinations.txt */,
-				AA758B7F1A363324007DEEA9 /* compound.db */,
 				AA758B801A363324007DEEA9 /* keywords.txt */,
 				AA758B811A363324007DEEA9 /* keywords.xml */,
 			);
@@ -242,6 +284,7 @@
 				TargetAttributes = {
 					AA758B241A362EA5007DEEA9 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = U3BY5J35VD;
 					};
 					AA758B3D1A362EA6007DEEA9 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -273,10 +316,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AACF79E01A7025A600937FEC /* compound.db in Resources */,
 				AA758B6D1A363248007DEEA9 /* Images.xcassets in Resources */,
 				AA758B661A363248007DEEA9 /* LaunchScreen.xib in Resources */,
 				AA758B821A363324007DEEA9 /* combinations.txt in Resources */,
-				AA758B831A363324007DEEA9 /* compound.db in Resources */,
 				AA758B671A363248007DEEA9 /* Main.storyboard in Resources */,
 				AA758B391A362EA6007DEEA9 /* LaunchScreen.xib in Resources */,
 				AA758B851A363324007DEEA9 /* keywords.xml in Resources */,
@@ -299,18 +342,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAE5A25F1AB9EF3D008827CE /* SettingsScene.swift in Sources */,
 				AA758B6C1A363248007DEEA9 /* GameViewController.swift in Sources */,
-				AA758B751A363248007DEEA9 /* WordPair.swift in Sources */,
+				AA758B751A363248007DEEA9 /* Combination.swift in Sources */,
 				AA758B7C1A3632B1007DEEA9 /* String-Extras.swift in Sources */,
+				AA58069C1A7703EC005BD0FA /* SceneServices.swift in Sources */,
+				AA58069A1A770292005BD0FA /* HomeScene.swift in Sources */,
 				AA758B511A3631BF007DEEA9 /* BusinessLogic.swift in Sources */,
+				AAE5A25B1AB9EF24008827CE /* ChallengesScene.swift in Sources */,
 				AA758B6E1A363248007DEEA9 /* Keyboard.swift in Sources */,
 				AA758B6B1A363248007DEEA9 /* DataAccess.swift in Sources */,
 				AA758B731A363248007DEEA9 /* StreamReader.swift in Sources */,
 				AA758B2F1A362EA6007DEEA9 /* GameScene.swift in Sources */,
 				AA758B2B1A362EA6007DEEA9 /* AppDelegate.swift in Sources */,
+				AAE5A2591AB9D9CB008827CE /* Resources.swift in Sources */,
 				AA758B4F1A363009007DEEA9 /* Button.swift in Sources */,
 				AA758B7B1A3632B1007DEEA9 /* SQLiteDB.swift in Sources */,
 				AA758B681A363248007DEEA9 /* Challenge.swift in Sources */,
+				AAE5A25D1AB9EF31008827CE /* ProfileScene.swift in Sources */,
 				AA758B711A363248007DEEA9 /* Set.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,9 +501,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Compound/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -462,9 +514,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Compound/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
